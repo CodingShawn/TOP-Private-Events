@@ -1,0 +1,12 @@
+<h1>
+    Home Page
+</h1>
+
+<div>
+    List of Created Events
+    <ul>
+        <% current_user.created_events.each do |event| %>
+            <li><%= event.name %></li>
+        <% end %>
+    </ul>
+</div>
