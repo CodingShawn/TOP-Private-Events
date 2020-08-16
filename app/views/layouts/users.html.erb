@@ -1,0 +1,16 @@
+<% if flash[:notice] %>
+    <div>
+        <%= flash[:notice] %>
+    </div>
+<% end %>
+
+<div>
+    <% if logged_in? %>
+        <%= current_user.username %> is currently logged in
+        <%= form_with model: @session, url: '/logout' do |f| %>
+            <%= f.submit "Log out" %>
+        <% end %>
+    <% end %>
+</div>
+
+<%= yield %>
