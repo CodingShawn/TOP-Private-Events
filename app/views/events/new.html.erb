@@ -3,6 +3,7 @@
 <div>
     <%= form_with model: @event do |f| %>
         <%= f.text_field :name %>
+        <%= f.date_field :date %>
         <%= f.submit "Create Event!" %>
     <% end %>
 </div>

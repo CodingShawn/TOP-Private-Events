@@ -4,3 +4,13 @@
 <h2>
     Created by <%= @event.creator %>
 </h2>
+<h4>
+    List of Attendees
+</h4>
+<div>
+    <ul>
+    <%= @event.attendees.each do |attendee| %>
+        <li><%= attendee.name %>
+    <% end %>
+    </ul>
+</div>

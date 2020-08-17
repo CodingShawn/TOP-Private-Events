@@ -1,6 +1,11 @@
 <h1>
     All Events
 </h1>
-<%= @events.do each |event| %>
-    <ul><%= event.name %>
-<% end %>
+<div>
+    <ul>
+        <% @events.each do |event| %>
+            <li><%= event.name %></li>
+            <%= button_to 'Attend', attend_path(event_id: event.id), method: :post %>
+        <% end %>
+    </ul>
+</div>

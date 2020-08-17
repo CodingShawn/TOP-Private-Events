@@ -5,7 +5,6 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.created_events.build(event_params)
-    @event.date = DateTime.current
     @event.save
     redirect_to root_url
   end
@@ -18,8 +17,15 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def attend
+    @event = Event.find(params[:event_id])
+    @event.attendees << current_user
+    @event.save
+    redirect_to root_url
+  end
+
   private
   def event_params
-    params.require(:event).permit(:name)
+    params.require(:event).permit(:name, :date)
   end
 end
