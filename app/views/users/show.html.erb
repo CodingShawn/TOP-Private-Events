@@ -16,9 +16,22 @@
 <h2>
     List of Attending Events
 </h2>
+<h3>
+    Upcoming Events
+</h3>
 <div>
     <ul>
-        <% current_user.attended_events.each do |event| %>
+        <% current_user.upcoming_events.each do |event| %>
+            <li><%= event.name %></li>
+        <% end %>
+    </ul>
+</div>
+<h3>
+    Past Events
+</h3>
+<div>
+    <ul>
+        <% current_user.past_events.each do |event| %>
             <li><%= event.name %></li>
         <% end %>
     </ul>
