@@ -1,11 +1,24 @@
 <h1>
     All Events
 </h1>
+<h3>
+    Upcoming Events
+</h3>
 <div>
     <ul>
-        <% @events.each do |event| %>
+        <% @events.future_events.each do |event| %>
             <li><%= event.name %></li>
             <%= button_to 'Attend', attend_path(event_id: event.id), method: :post %>
+        <% end %>
+    </ul>
+</div>
+<h3>
+    Past Events
+</h3>
+<div>
+    <ul>
+        <% @events.past_events.each do |event| %>
+            <li><%= event.name %></li>
         <% end %>
     </ul>
 </div>
